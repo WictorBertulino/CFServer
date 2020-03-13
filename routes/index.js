@@ -9,6 +9,9 @@ router.post('/GetUser', function (req, res, next) {
     password: '23232'
   }]
 
+  console.log(req);
+  
+
 
   res.send(JSON.stringify(result));
  
