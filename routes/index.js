@@ -17,9 +17,11 @@ router.post('/GetUser', function (req, res, next) {
   con.query("SELECT * FROM usuarios WHERE gamertag = '"+req.body.gamertag +"' AND senha='"+req.body.password+"';",function (err, result, fields) {
       if (err) throw err;
       console.log(result);
-      
+      con.close();
+      con.destroy();
       res.send(JSON.stringify(result));
     })
+
  // con.query("SELECT * FROM usuarios WHERE gamertag = '"+req.body.gamertag +"' AND senha='"+req.body.password+"';", function (err, result, fields) {
     //   if (err) throw err;
     //   console.log(result);
