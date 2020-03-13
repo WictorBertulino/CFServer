@@ -19,14 +19,15 @@ router.post('/GetUser', function (req, res, next) {
 
   con.query("SELECT * FROM usuarios WHERE gamertag = '"+req.body.gamertag +"' AND senha='"+req.body.password+"';", function (err, result, fields) {
     if (err) throw err;
+    con.end(function(err) {
+      if (err) {
+        return console.log('error:' + err.message);
+      }
+      console.log('Close the database connection.');
+    });
     res.send(JSON.stringify(result));
   });
-  con.end(function(err) {
-    if (err) {
-      return console.log('error:' + err.message);
-    }
-    console.log('Close the database connection.');
-  });
+
 });
 
 module.exports = router;
