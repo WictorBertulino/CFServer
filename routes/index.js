@@ -19,8 +19,11 @@ router.post('/GetUser', function (req, res, next) {
       if (err) throw err;
       console.log(result);
       res.send({teste:1})
+      connection.destroy();
+
       // res.send(JSON.stringify(result));
     });
+
   });
 
   
