@@ -7,6 +7,9 @@ let result = {
   gamertag:req.body.gamertag,
   password:req.body.password
 }
+
+console.log(req);
+
     res.end(JSON.stringify(result));
 });
 
