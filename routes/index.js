@@ -5,7 +5,7 @@ var router = express.Router();
 router.post('/GetUser', function(req, res, next) {
 
    
-    res.end(JSON.stringify(req));
+    res.end('teste');
 });
 
 module.exports = router;
