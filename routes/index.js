@@ -19,7 +19,12 @@ router.post('/GetUser', function (req, res, next) {
       if (err) throw err;
       console.log(result);
       res.send({teste:1})
-      connection.destroy();
+      connection.end(function(err) {
+        if (err) {
+          return console.log('error:' + err.message);
+        }
+        console.log('Close the database connection.');
+      });
 
       // res.send(JSON.stringify(result));
     });
