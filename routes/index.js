@@ -13,10 +13,9 @@ var con = mysql.createConnection({
 /* GET home page. */
 router.post('/GetUser', function (req, res, next) {
   res.setHeader("Content-Type", "application/json");
-  let result = []
   con.connect(function(err) {
     if (err) throw err;
-    con.query("SELECT * FROM usuarios", function (err, result, fields) {
+    con.query("SELECT * FROM usuarios WHERE gamertag = '"+req.body.gamertag +"' AND senha='"+req.body.password+"';", function (err, result, fields) {
       if (err) throw err;
       res.send(JSON.stringify(result));
     });
