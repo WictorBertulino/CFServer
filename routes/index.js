@@ -10,6 +10,7 @@ router.post('/GetUser', function (req, res, next) {
 
 
   res.send(JSON.stringify(result));
+  res.end();
 });
 
 module.exports = router;
