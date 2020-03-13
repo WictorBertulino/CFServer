@@ -5,8 +5,8 @@ var router = express.Router();
 router.post('/GetUser', function (req, res, next) {
   res.setHeader("Content-Type", "application/json");
   let result = [{
-    gamertag: '123231',
-    password: '23232'
+    gamertag: req.body.gamertag,
+    password: req.body.gamertag
   }]
 
   console.log(req);
