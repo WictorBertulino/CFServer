@@ -19,7 +19,7 @@ router.post('/GetUser', function (req, res, next) {
       if (err) throw err;
       console.log(result);
       res.send({teste:1})
-      connection.end(function(err) {
+      con.end(function(err) {
         if (err) {
           return console.log('error:' + err.message);
         }
