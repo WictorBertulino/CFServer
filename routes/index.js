@@ -8,7 +8,7 @@ let result = {
   password:req.body.password
 }
 
-console.log(req);
+
 
     res.end(JSON.stringify(result));
 });
