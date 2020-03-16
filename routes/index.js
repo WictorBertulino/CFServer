@@ -32,4 +32,31 @@ router.post('/GetUser', function (req, res, next) {
  
 });
 
+router.get('/GetUsersFull', function (req, res, next) {
+  res.setHeader("Content-Type", "application/json");
+  var con = mysql.createConnection({
+    host: "jcrastreamentoveicular00.com.br",
+    user: "jcdev",
+    password: "jc123",
+    database: "cf"
+  });
+  
+  con.connect();
+  con.query("SELECT * FROM usuarios",function (err, result, fields) {
+      if (err) throw err;
+      console.log(result);
+      con.destroy();
+      res.send(JSON.stringify(result));
+    })
+
+
+  
+ 
+});
+
+
+
+
+
+
 module.exports = router;
